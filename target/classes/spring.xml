@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean name="application" class="ru.sbt.mipt.oop.Application">
+        <constructor-arg ref="smartHomeLoader"/>
+        <constructor-arg ref="ccEventManager"/>
+        <constructor-arg ref="remoteControlService"/>
+    </bean>
+
+    <bean name="smartHomeLoader" class="ru.sbt.mipt.oop.loaders_smart_home.FileSmartHomeLoader"/>
+
+    <bean name="homeEventManager" class="ru.sbt.mipt.oop.smartHomeSupporters.SmartHomeEventManager">
+        <constructor-arg ref="sensorEventProvider"/>
+    </bean>
+
+    <bean name="sensorEventProvider" class="ru.sbt.mipt.oop.events.providers.RandomSensorEventProvider"/>
+
+    <bean name="ccEventManager" class="ru.sbt.mipt.oop.adapters.CoolCompanyLib.CCtoSbtAdaptedEventManager">
+        <constructor-arg ref="ccSensorEventManager"/>
+    </bean>
+
+    <bean name="ccSensorEventManager" class="com.coolcompany.smarthome.events.SensorEventsManager"/>
+
+    <bean name="remoteControlService" class="com.coolcompany.smarthome.RemoteControlService"/>
+
+</beans>

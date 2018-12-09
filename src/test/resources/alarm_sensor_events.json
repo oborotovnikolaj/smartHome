@@ -1,0 +1,18 @@
+[
+  {
+    "type": "ALARM_ACTIVATE",
+    "objectId": "1"
+  },
+  {
+    "type": "ALARM_INACTIVATE",
+    "objectId": "2"
+  },
+  {
+    "type": "ALARM_ACTIVATE",
+    "objectId": "1"
+  },
+  {
+    "type": "ALARM_INACTIVATE",
+    "objectId": "1"
+  }
+]
